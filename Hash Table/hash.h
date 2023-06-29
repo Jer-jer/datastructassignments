@@ -28,13 +28,13 @@ typedef struct {
 typedef struct node{
 	Student student;
 	struct node *next;	
-} SType;
+} SType, *SPointer;
 
 typedef struct {
-	SType *stype;
+	SPointer *students;
 	int count;
 	int max;
-} *Dictionary; //Max is 26
+} Dictionary; //Max is 26
 
 
 void initDict(Dictionary *, int);
@@ -43,7 +43,7 @@ int hash(String, int);
 FullName addName();
 Birthdate addBday();
 Student addStudent();
-void insertStudent(Dictionary *, Student);
+bool insertStudent(Dictionary *, Student);
 void deleteStudent(Dictionary *, Student);
 void findStudent(Dictionary, Student);
 void displayStudents(Dictionary);
