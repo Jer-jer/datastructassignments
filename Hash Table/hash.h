@@ -1,6 +1,8 @@
 #ifndef HASH_H
 #define HASH_H
 
+#include <stdbool.h>
+
 typedef char String[80];
 
 typedef struct {
@@ -40,12 +42,12 @@ typedef struct {
 void initDict(Dictionary *, int);
 // Use first letter of last name
 int hash(String, int);
-FullName addName();
-Birthdate addBday();
-Student addStudent();
+FullName addName(String, String, String);
+Birthdate addBday(int, int, int);
+Student addStudent(String, FullName, char, int, String, Birthdate);
 bool insertStudent(Dictionary *, Student);
-void deleteStudent(Dictionary *, Student);
-void findStudent(Dictionary, Student);
+bool deleteStudent(Dictionary *, FullName);
+Student findStudent(Dictionary, FullName);
 void displayStudents(Dictionary);
 void visualize(Dictionary);
 
