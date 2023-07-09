@@ -10,7 +10,8 @@ void initDict(Dictionary *d, int size){
 	d->count = 0;
 	d->max = size;
 
-	for(int i = 0; i < d->max; i++){
+	int i;
+	for(i = 0; i < d->max; i++){
 		d->students[i] = NULL;
 	}
 }
@@ -194,7 +195,8 @@ Student findStudent(Dictionary d, FullName fullname){
 	return head->student;
 }
 void displayStudents(Dictionary d){
-	for(int i = 0; i < d.max; i++){
+	int i = 0;
+	for(i = 0; i < d.max; i++){
 		SPointer head = d.students[i];
 		if(head != NULL){
 			printf("INDEX ----- %2d \n", i);
@@ -209,7 +211,8 @@ void displayStudents(Dictionary d){
 	}
 }
 void visualize(Dictionary d){
-	for(int i = 0; i < d.max; i++){
+	int i;
+	for(i = 0; i < d.max; i++){
 		SPointer head = d.students[i];
 		printf("INDEX ----- %2d \n", i);
 		while(head != NULL){

@@ -63,12 +63,11 @@ bool addElement(VSpace *vs, int data){
 	
 	if(vs->count == overallLimit || vs->count == synonymLimit){
 //		 Rehash function here
-		printf("70 percent of either count and synonym \n");
+		printf("70 percent of either count and synonym \n\n");
 		VSpace holder = rehash(*vs);
 		Data *arrayHolder = vs->data;
 		free(arrayHolder);
 		*vs = holder;
-
 	}
 	
 	if(vs->data[key].elem == EMPTY || vs->data[key].elem == DELETED){
@@ -109,10 +108,13 @@ bool removeElement(VSpace *vs, int data){
 			head = vs->data[head].link;
 		}
 		
-		holder = vs->data[head].link;
-		vs->data[head].link = vs->data[holder].link;
-		vs->data[holder].elem = EMPTY;
-		freeSpace(vs, holder);
+		if(vs->data[head].link != -1){
+			holder = vs->data[head].link;
+			vs->data[head].link = vs->data[holder].link;
+			vs->data[holder].elem = EMPTY;
+			freeSpace(vs, holder);
+		}
+
 	}
 	
 	

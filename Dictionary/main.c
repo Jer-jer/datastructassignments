@@ -35,5 +35,10 @@ int main(int argc, char *argv[]) {
 	addElement(&vs, 20);
 	
 	visualize(vs);
+	
+	removeElement(&vs, 5);
+	removeElement(&vs, 20);
+	
+	visualize(vs);
 	return 0;
 }
